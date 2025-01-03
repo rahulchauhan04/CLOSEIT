@@ -17,8 +17,6 @@ const Header = () => {
      const navigate = useNavigate();
      const user = useSelector(state => state.user);
      const [openUserMenu, setOpenUserMenu ] = useState(false);
-
-     console.log("user from store", user);
      
      const handleCloseUserMenu = () => {
           setOpenUserMenu(false);
@@ -33,6 +31,7 @@ const Header = () => {
                navigate('/login');
                return;
           }
+          navigate('/user')
      }
 
 

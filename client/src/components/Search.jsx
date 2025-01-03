@@ -28,8 +28,6 @@ const Search = () => {
      const redirectToSearchPage = () => {
           navigate('/search');
      }
-
-     console.log("search", isSearchPage);
      
 
   return (
