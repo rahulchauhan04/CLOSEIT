@@ -284,7 +284,7 @@ export async function updateUserDetails( request, response) {
           })
 
           return response.json({
-               message : "Updated User Successfully",
+               message : "Updated Successfully",
                error : false,
                success : true,
                data : updateUser
