@@ -17,6 +17,7 @@ const CategoryPage = () => {
           name: "",
           image: "",
      });
+     const [openConfirmBoxDelete, setOpenConfirmBoxDelete] = 
 
      const fetchCategory = async() => {
           try {
