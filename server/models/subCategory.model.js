@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
 const subCategorySchema = new mongoose.Schema({
      name : {
@@ -19,6 +19,6 @@ const subCategorySchema = new mongoose.Schema({
      timestamps : true
 })
 
-const SubCategoryModel = mongoose.model("subCategory", subCategorySchema);
+const SubCategoryModel = mongoose.model('SubCategory', subCategorySchema);
 
 export default SubCategoryModel;
