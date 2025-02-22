@@ -65,7 +65,7 @@ const Profile = () => {
      }, [user]);
 
      return (
-          <div>
+          <div className="p-4">
                {/* Profile Upload & display Image */}
                <div className="w-20 h-20 flex items-center justify-center rounded-full overflow-hidden drop-shadow-sm">
                     {user.avatar ? (

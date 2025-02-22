@@ -1,10 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
+import UploadSubCategoryModal from "../components/UploadSubCategoryModal";
 
 const SubCategoryPage = () => {
+
+  const [openAddSubCategory, setOpenAddSubCategory] = useState(false);
+
   return (
-     <div>
-          <h1>Sub Category Page</h1>
-     </div>
+    <section>
+               
+          <div className="p-2 bg-white shadow-md flex items-center justify-between">
+               <h2 className="font-semibold">Sub Category</h2>
+               <button onClick={() => setOpenAddSubCategory(true)} className="text-sm border border-primary-200 hover:bg-primary-200 px-3 py-1 rounded">Add Sub Category</button>
+          </div>
+
+          {
+            openAddSubCategory && (
+              <UploadSubCategoryModal close={() => setOpenAddSubCategory(false)} />
+            )
+          }
+     </section>
   )
 };
 

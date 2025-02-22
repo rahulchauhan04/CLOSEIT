@@ -7,6 +7,7 @@ import Axios from "../utils/Axios";
 import SummaryApi from "../common/SummaryApi";
 import EditCategory from "../components/EditCategory";
 import ConfirmBox from "../components/ConfirmBox";
+import toast from "react-hot-toast";
 
 const CategoryPage = () => {
 
@@ -44,8 +45,23 @@ const CategoryPage = () => {
           fetchCategory();
      },[])
 
-     const handleDeleteCategory = () => {
-          
+     const handleDeleteCategory = async() => {
+          try {
+               const response = await Axios({
+                    ...SummaryApi.deleteCategory,
+                    data: deleteCategory,
+               })
+
+               const { data : responseData } = response;
+
+               if(responseData.success) {
+                    toast.success(responseData.message);
+                    fetchCategory();
+                    setOpenConfirmBoxDelete(false);
+               }
+          } catch (error) {
+               AxiosToastError(error)
+          }
      }
      
   return (
