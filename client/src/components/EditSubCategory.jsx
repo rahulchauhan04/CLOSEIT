@@ -7,12 +7,13 @@ import SummaryApi from "../common/SummaryApi";
 import { toast } from 'react-hot-toast';
 import AxiosToastError from '../utils/AxiosToastError';
 
-const UploadSubCategoryModal = ({ close }) => {
+const EditSubCategory = ({ close,data,fetchhData }) => {
 
      const [subCategoryData, setSubCategoryData] = useState({
-          name: "",
-          image: "",
-          category: [],
+          _id: data._id,
+          name: data.name,
+          image: data.image,
+          category: data.category || [],
      });
 
      const allCategory = useSelector((state) => state.product.allCategory);
@@ -60,7 +61,7 @@ const UploadSubCategoryModal = ({ close }) => {
           e.preventDefault();
           try {
                const response = await Axios({
-                    ...SummaryApi.createSubCategory,
+                    ...SummaryApi.updateSubCategory,
                     data: subCategoryData,
                })
 
@@ -72,6 +73,10 @@ const UploadSubCategoryModal = ({ close }) => {
                          close();
                     }
                }
+
+               if (fetchhData) {
+                    fetchhData();
+               }
           } catch (error) {
                AxiosToastError
           }
@@ -82,7 +87,7 @@ const UploadSubCategoryModal = ({ close }) => {
           <div className="w-full max-w-6xl bg-white p-4 rounded">
                <div className="flex items-center justify-between">
                     <h1 className="font-semibold">
-                         Add Sub Category
+                         Edit Sub Category
                     </h1>
                     <button className="w-fit block ml-auto" onClick={close}>
                          <IoClose size={25}/>
@@ -190,4 +195,4 @@ const UploadSubCategoryModal = ({ close }) => {
   );
 };
 
-export default UploadSubCategoryModal;
+export default EditSubCategory;
