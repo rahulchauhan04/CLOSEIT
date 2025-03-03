@@ -150,7 +150,10 @@ const SubCategoryPage = () => {
 
           {
             openAddSubCategory && (
-              <UploadSubCategoryModal close={() => setOpenAddSubCategory(false)} />
+              <UploadSubCategoryModal 
+                close={() => setOpenAddSubCategory(false)} 
+                fetchhData={fetchSubCategory}
+              />
             )
           }
 

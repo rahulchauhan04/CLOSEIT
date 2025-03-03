@@ -7,7 +7,7 @@ import SummaryApi from "../common/SummaryApi";
 import { toast } from 'react-hot-toast';
 import AxiosToastError from '../utils/AxiosToastError';
 
-const UploadSubCategoryModal = ({ close }) => {
+const UploadSubCategoryModal = ({ close,fetchhData }) => {
 
      const [subCategoryData, setSubCategoryData] = useState({
           name: "",
@@ -70,6 +70,10 @@ const UploadSubCategoryModal = ({ close }) => {
                     toast.success(responseData.message)
                     if (close) {
                          close();
+                    }
+
+                    if (fetchhData) {
+                         fetchhData();
                     }
                }
           } catch (error) {

@@ -25,11 +25,11 @@ const CategoryPage = () => {
           _id: "",
      })
 
-     const allCategory = useSelector(( state ) => state.product.allCategory);
+     // const allCategory = useSelector(( state ) => state.product.allCategory);
 
-     useEffect(() => {
-          setCategoryData(allCategory);
-     },[allCategory])
+     // useEffect(() => {
+     //      setCategoryData(allCategory);
+     // },[allCategory])
 
      const fetchCategory = async() => {
           try {
