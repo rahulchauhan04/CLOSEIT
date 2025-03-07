@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import uploadImage from "../utils/UploadImage.js";
 import Loading from "../components/Loading.jsx";
@@ -121,11 +121,28 @@ const UploadProduct = () => {
 
       if (responseData.success) {
         successAlert(responseData.message);
+        setData({
+          name: "",
+          image: [],
+          category: [],
+          subCategory: [],
+          unit: "",
+          stock: "",
+          price: "",
+          discount: "",
+          description: "",
+          more_details: {},
+        })
       }
+      
     } catch (error) {
       AxiosToastError(error);
     }
   }
+
+  // useEffect(() => {
+  //   successAlert("Uploaded Successfully");
+  // }, [])
 
   return (
     <section>
