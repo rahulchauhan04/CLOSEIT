@@ -79,15 +79,19 @@ const SummaryApi = {
      },
      createProduct : {
           url : "/api/product/create",
-          method : "post"
+          method : "POST"
      },
      getProduct : {
           url : "/api/product/get",
-          method : "post"
+          method : "POST"
      },
      getProductByCategory : {
           url : "/api/product/get-product-by-category",
-          method : "post"
+          method : "POST"
+     },
+     getProductByCategoryandSubCategory : {
+          url : "/api/product/get-product-by-category-and-subcategory",
+          method : "POST"
      }
 }
 
