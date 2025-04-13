@@ -74,7 +74,7 @@ export const getProductController = async(request,response) => {
           } : {}
 
           const [ data, totalCount ] = await Promise.all([
-               ProductModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit),
+               ProductModel.find(query).sort({ createdAt: -1 }).skip(skip).limit(limit).populate('category subCategory'),
                ProductModel.countDocuments(query)
           ])
 
@@ -163,6 +163,27 @@ export const getProductByCategoryandSubCategory = async(request,response) => {
                limit : limit,
                success: true,
                error: false,
+          });
+     } catch (error) {
+          return response.status(500).json({
+               message: error.message || error,
+               error: true,
+               success: false
+          });
+     }
+}
+
+export const getProductDetails = async(request,response) => {
+     try {
+          const { productId } = request.body;
+
+          const product = await ProductModel.findOne({ _id: productId });
+
+          return response.json({
+               message: 'Product details',
+               error: false,
+               success: true,
+               data : product,
           });
      } catch (error) {
           return response.status(500).json({
